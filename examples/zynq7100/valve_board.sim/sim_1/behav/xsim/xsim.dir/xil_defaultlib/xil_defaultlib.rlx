@@ -1,0 +1,9 @@
+0.7
+2020.2
+Jun 10 2021
+20:04:57
+D:/fpga development/valve_board/valve_board.gen/sources_1/ip/ila_0/sim/ila_0.v,1635421211,verilog,,D:/fpga development/valve_board/valve_board.srcs/sources_1/new/valve_interface.v,,ila_0,,,,,,,,
+D:/fpga development/valve_board/valve_board.sim/sim_1/behav/xsim/glbl.v,1623370582,verilog,,,,glbl,,,,,,,,
+D:/fpga development/valve_board/valve_board.srcs/sim_1/new/valve_board_tb.v,1636384093,verilog,,,,valve_board_tb,,,,,,,,
+D:/fpga development/valve_board/valve_board.srcs/sources_1/new/valve_interface.v,1636382861,verilog,,D:/fpga development/valve_board/valve_board.srcs/sources_1/new/valve_test.v,,valve_interface,,,,,,,,
+D:/fpga development/valve_board/valve_board.srcs/sources_1/new/valve_test.v,1636384451,verilog,,D:/fpga development/valve_board/valve_board.srcs/sim_1/new/valve_board_tb.v,,valve_test,,,,,,,,

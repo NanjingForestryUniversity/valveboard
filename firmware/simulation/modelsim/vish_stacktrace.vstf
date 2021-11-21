@@ -1,0 +1,201 @@
+# Current time Wed Apr 11 12:55:14 2012
+# ModelSim Stack Trace
+# Program = vish
+# Id = "6.6d"
+# Version = "2010.11"
+# Date = "Nov  2 2010"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 1025b6d5. Traceback:
+# 0    0x1025b6d5: 'Tk_FreeColor + 0x85'
+# 1    0x10223fe5: 'TkpFreeBorder + 0x25'
+# 2    0x1023c248: 'Tk_Free3DBorder + 0x28'
+# 3    0x1025c230: 'TkGetOptionSpec + 0x1a0'
+# 4    0x10242fb9: 'TkInvokeButton + 0x589'
+# 5    0x102633e4: 'Tk_HandleEvent + 0x444'
+# 6    0x102a9fe6: 'Tk_DestroyWindow + 0x1d6'
+# 7    0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 8    0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 9    0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 10   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 11   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 12   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 13   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 14   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 15   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 16   0x102594db: 'Tk_DestroyObjCmd + 0x5b'
+# 17   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 18   0x1002d7bb: 'TclExprFloatError + 0x10eb'
+# 19   0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 20   0x1005391f: 'TclObjInterpProc + 0x23f'
+# 21   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 22   0x1000dd77: 'Tcl_EvalEx + 0x167'
+# 23   0x1000f1a5: 'Tcl_EvalObjEx + 0x235'
+# 24   0x10011bf5: 'Tcl_EvalObjCmd + 0x75'
+# 25   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 26   0x1002d7bb: 'TclExprFloatError + 0x10eb'
+# 27   0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 28   0x1005391f: 'TclObjInterpProc + 0x23f'
+# 29   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 30   0x1000dd77: 'Tcl_EvalEx + 0x167'
+# 31   0x1000e0d6: 'Tcl_Eval + 0x16'
+# 32   0x1000e53c: 'Tcl_GlobalEval + 0x1c'
+# 33   0x102355cb: 'TkWmProtocolEventProc + 0x8b'
+# 34   0x10263342: 'Tk_HandleEvent + 0x3a2'
+# 35   0x10263606: 'Tk_CollapseMotionEvents + 0x86'
+# 36   0x1004aed0: 'Tcl_ServiceEvent + 0x60'
+# 37   0x1004b11e: 'Tcl_DoOneEvent + 0x10e'
+# 38   0x1026368f: 'Tk_MainLoop + 0x1f'
+# 39   0x0049f2c1: 'Mtirpc_Init + 0x14f81'
+# 40   0x004a0c49: 'Mtirpc_Init + 0x16909'
+# 41   0x0072edba: '<unknown (@0x72edba)>'
+# 42   0x7689ed6c: '<unknown (@0x7689ed6c)>'
+# 43   0x77c1377b: '<unknown (@0x77c1377b)>'
+# 44   0x77c1374e: '<unknown (@0x77c1374e)>'
+StackWalk failed 487
+# End of Stack Trace
+
+# Current time Wed Apr 11 12:55:14 2012
+# ModelSim Stack Trace
+# Program = vish
+# Id = "6.6d"
+# Version = "2010.11"
+# Date = "Nov  2 2010"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 1025b6d5. Traceback:
+# 0    0x1025b6d5: 'Tk_FreeColor + 0x85'
+# 1    0x10223fe5: 'TkpFreeBorder + 0x25'
+# 2    0x1023c248: 'Tk_Free3DBorder + 0x28'
+# 3    0x10288b7e: 'Tk_FreeOptions + 0x8e'
+# 4    0x0046929c: '<unknown (@0x46929c)>'
+# 5    0x10052666: 'Tcl_EventuallyFree + 0x66'
+# 6    0x00469903: '<unknown (@0x469903)>'
+# 7    0x102633e4: 'Tk_HandleEvent + 0x444'
+# 8    0x102a9fe6: 'Tk_DestroyWindow + 0x1d6'
+# 9    0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 10   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 11   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 12   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 13   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 14   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 15   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 16   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 17   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 18   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 19   0x102aa38c: 'Tk_MapWindow + 0xfc'
+# 20   0x1002b0b0: 'Tcl_FinalizeThread + 0x50'
+# 21   0x10011ca6: 'Tcl_ExitObjCmd + 0x66'
+# 22   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 23   0x1002d7bb: 'TclExprFloatError + 0x10eb'
+# 24   0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 25   0x1005391f: 'TclObjInterpProc + 0x23f'
+# 26   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 27   0x1000dd77: 'Tcl_EvalEx + 0x167'
+# 28   0x1000e0d6: 'Tcl_Eval + 0x16'
+# 29   0x00498b33: 'Mtirpc_Init + 0xe7f3'
+# 30   0x0049d4ba: 'Mtirpc_Init + 0x1317a'
+# 31   0x004a0c75: 'Mtirpc_Init + 0x16935'
+# 32   0x0072edba: '<unknown (@0x72edba)>'
+# 33   0x7689ed6c: '<unknown (@0x7689ed6c)>'
+# 34   0x77c1377b: '<unknown (@0x77c1377b)>'
+# 35   0x77c1374e: '<unknown (@0x77c1374e)>'
+StackWalk failed 487
+# End of Stack Trace
+
+# Current time Wed Apr 11 12:55:14 2012
+# ModelSim Stack Trace
+# Program = vish
+# Id = "6.6d"
+# Version = "2010.11"
+# Date = "Nov  2 2010"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 1025b6d5. Traceback:
+# 0    0x1025b6d5: 'Tk_FreeColor + 0x85'
+# 1    0x10223fe5: 'TkpFreeBorder + 0x25'
+# 2    0x1023c248: 'Tk_Free3DBorder + 0x28'
+# 3    0x10288b7e: 'Tk_FreeOptions + 0x8e'
+# 4    0x0046929c: '<unknown (@0x46929c)>'
+# 5    0x10052666: 'Tcl_EventuallyFree + 0x66'
+# 6    0x00469903: '<unknown (@0x469903)>'
+# 7    0x102633e4: 'Tk_HandleEvent + 0x444'
+# 8    0x102a9fe6: 'Tk_DestroyWindow + 0x1d6'
+# 9    0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 10   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 11   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 12   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 13   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 14   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 15   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 16   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 17   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 18   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 19   0x102aa38c: 'Tk_MapWindow + 0xfc'
+# 20   0x1002b0b0: 'Tcl_FinalizeThread + 0x50'
+# 21   0x10011ca6: 'Tcl_ExitObjCmd + 0x66'
+# 22   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 23   0x1002d7bb: 'TclExprFloatError + 0x10eb'
+# 24   0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 25   0x1005391f: 'TclObjInterpProc + 0x23f'
+# 26   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 27   0x1000dd77: 'Tcl_EvalEx + 0x167'
+# 28   0x1000e0d6: 'Tcl_Eval + 0x16'
+# 29   0x00498b33: 'Mtirpc_Init + 0xe7f3'
+# 30   0x0049d4ba: 'Mtirpc_Init + 0x1317a'
+# 31   0x004a0c75: 'Mtirpc_Init + 0x16935'
+# 32   0x0072edba: '<unknown (@0x72edba)>'
+# 33   0x7689ed6c: '<unknown (@0x7689ed6c)>'
+# 34   0x77c1377b: '<unknown (@0x77c1377b)>'
+# 35   0x77c1374e: '<unknown (@0x77c1374e)>'
+StackWalk failed 487
+# End of Stack Trace
+
+# Current time Wed Apr 11 12:55:14 2012
+# ModelSim Stack Trace
+# Program = vish
+# Id = "6.6d"
+# Version = "2010.11"
+# Date = "Nov  2 2010"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 1025b6d5. Traceback:
+# 0    0x1025b6d5: 'Tk_FreeColor + 0x85'
+# 1    0x10223fe5: 'TkpFreeBorder + 0x25'
+# 2    0x1023c248: 'Tk_Free3DBorder + 0x28'
+# 3    0x10288b7e: 'Tk_FreeOptions + 0x8e'
+# 4    0x0046929c: '<unknown (@0x46929c)>'
+# 5    0x10052666: 'Tcl_EventuallyFree + 0x66'
+# 6    0x00469903: '<unknown (@0x469903)>'
+# 7    0x102633e4: 'Tk_HandleEvent + 0x444'
+# 8    0x102a9fe6: 'Tk_DestroyWindow + 0x1d6'
+# 9    0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 10   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 11   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 12   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 13   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 14   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 15   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 16   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 17   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 18   0x102a9f40: 'Tk_DestroyWindow + 0x130'
+# 19   0x102aa38c: 'Tk_MapWindow + 0xfc'
+# 20   0x1002b0b0: 'Tcl_FinalizeThread + 0x50'
+# 21   0x10011ca6: 'Tcl_ExitObjCmd + 0x66'
+# 22   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 23   0x1002d7bb: 'TclExprFloatError + 0x10eb'
+# 24   0x1002bc79: 'TclCompEvalObj + 0xd9'
+# 25   0x1005391f: 'TclObjInterpProc + 0x23f'
+# 26   0x1000c770: 'TclEvalObjvInternal + 0x230'
+# 27   0x1000dd77: 'Tcl_EvalEx + 0x167'
+# 28   0x1000e0d6: 'Tcl_Eval + 0x16'
+# 29   0x00498b33: 'Mtirpc_Init + 0xe7f3'
+# 30   0x0049d4ba: 'Mtirpc_Init + 0x1317a'
+# 31   0x004a0c75: 'Mtirpc_Init + 0x16935'
+# 32   0x0072edba: '<unknown (@0x72edba)>'
+# 33   0x7689ed6c: '<unknown (@0x7689ed6c)>'
+# 34   0x77c1377b: '<unknown (@0x77c1377b)>'
+# 35   0x77c1374e: '<unknown (@0x77c1374e)>'
+StackWalk failed 487
+# End of Stack Trace
+

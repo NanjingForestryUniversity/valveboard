@@ -1,0 +1,19 @@
+{
+    "terminal.integrated.shell.windows": "D:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.external.windowsExec": "D:\\Program Files\\Git\\bin\\bash.exe",
+    "files.associations": {
+        "main.h": "c",
+        "usart.h": "c",
+        "sys.h": "c",
+        "stm32f10x.h": "c",
+        "led.h": "c",
+        "system_stm32f10x.h": "c",
+        "stm32f10x_rcc.h": "c",
+        "valve.h": "c",
+        "stm32f10x_gpio.h": "c"
+    },
+    "cortex-debug.armToolchainPath": "D:\\Program Files\\gcc-arm-none-eabi\\bin",
+    "C_Cpp.clang_format_sortIncludes": true,
+    "C_Cpp.clang_format_style": "Visual Studio",
+    "files.encoding": "gbk"
+}

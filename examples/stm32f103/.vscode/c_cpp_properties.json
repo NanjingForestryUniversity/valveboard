@@ -1,0 +1,52 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${workspaceFolder}/CORE",
+                    "${workspaceFolder}/HARDWARE/LED",
+                    "${workspaceFolder}/HARDWARE/valve",
+                    "${workspaceFolder}/STM32F10x_FWLib/inc",
+                    "${workspaceFolder}/SYSTEM/delay",
+                    "${workspaceFolder}/SYSTEM/sys",
+                    "${workspaceFolder}/SYSTEM/usart",
+                    "${workspaceFolder}/USER"
+                    // "${workspaceFolder}/Drivers/FWlib/inc",
+                    // "${workspaceFolder}/Drivers/CMSIS/startup",
+                    // "${workspaceFolder}/User/inc",
+                    // "${workspaceFolder}/User",
+                    // "${workspaceFolder}/ThirdParty/crclib/include"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/CORE",
+                "${workspaceFolder}/HARDWARE/valve",
+                "${workspaceFolder}/HARDWARE/LED",
+                "${workspaceFolder}/STM32F10x_FWLib/inc",
+                "${workspaceFolder}/SYSTEM/delay",
+                "${workspaceFolder}/SYSTEM/sys",
+                "${workspaceFolder}/SYSTEM/usart",
+                "${workspaceFolder}/USER"
+                // "${workspaceFolder}/Drivers/FWlib/inc",
+                // "${workspaceFolder}/Drivers/CMSIS/startup",
+                // "${workspaceFolder}/User/inc",
+                // "${workspaceFolder}/User",
+                // "${workspaceFolder}/ThirdParty/crclib/include"
+            ],
+            "defines": [
+                "__GNUC__",
+                "STM32F10X_HD",
+                "USE_STDPERIPH_DRIVER"
+            ],
+            "compilerPath": "D:/Program Files/gcc-arm-none-eabi/bin/arm-none-eabi-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm"
+        }
+    ],
+    "version": 4
+}

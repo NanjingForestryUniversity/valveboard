@@ -1,0 +1,153 @@
+module PF1(
+			clk,rst_n,
+			S_PF,
+			SCLK,
+			SEN,
+			SDATA,	
+		);
+
+input clk;		//50MHz
+input rst_n;	//低电平复位信号
+input SCLK;
+input SEN;
+input SDATA;
+
+output[47:0] S_PF;     
+
+reg[21:0] cnt;
+reg[5:0] timer;
+reg[47:0] S_PFr;
+reg[6:0] i;
+reg[47:0] S_PFr2;
+
+//always @ (posedge clk or negedge rst_n)
+//	if(!rst_n) cnt <= 18'd0;
+//	else 
+//	begin
+//     cnt <= cnt+1'b1;
+//     if(cnt == 5001) cnt <= 0;
+//	end
+
+reg r_data_in0;
+reg o_rising_edge;
+
+ always@(posedge clk or negedge rst_n) 
+begin
+  if (!rst_n) 
+    r_data_in0 <= 0;
+  else begin
+    r_data_in0 <= SCLK;
+   if ({r_data_in0, SCLK} == 2'b01)
+     o_rising_edge <= 1;    
+   else
+     o_rising_edge <= 0;
+  end   
+end
+
+
+
+always @ (posedge clk)
+  if(cnt<20'hfffff)
+       begin
+         cnt <= cnt + 1'b1;
+       end
+  else if (timer<60)
+     begin
+       cnt <= 0;
+       timer <= timer + 1'b1; 
+       S_PFr2 <= 48'hffffffffffff;
+       end
+  else
+       begin
+       S_PFr2 <= S_PFr;
+       end
+      				
+always @ (posedge SCLK)
+    if (!SEN)
+    begin
+       i <= 0;
+    end   
+	else 
+    if(timer==60)
+       begin
+         i <= i+1'b1; 
+         S_PFr[i] <= SDATA;  
+   /*      case(i)
+         6'd0:  S_PFr[0] <= SDATA;
+         6'd1:  S_PFr[1] <= SDATA; 
+         6'd2:  S_PFr[2] <= SDATA;
+         6'd3:  S_PFr[3] <= SDATA;
+         6'd4:  S_PFr[4] <= SDATA;
+         6'd5:  S_PFr[5] <= SDATA;
+         6'd6:  S_PFr[6] <= SDATA;
+         6'd7:  S_PFr[7] <= SDATA;
+         6'd8:  S_PFr[8] <= SDATA;
+         6'd9:  S_PFr[9] <= SDATA;
+         6'd10: S_PFr[10] <= SDATA;
+         6'd11: S_PFr[11] <= SDATA;
+         6'd12: S_PFr[12] <= SDATA;
+         6'd13: S_PFr[13] <= SDATA;
+         6'd14: S_PFr[14] <= SDATA;
+         6'd15: S_PFr[15] <= SDATA;
+         6'd16: S_PFr[16] <= SDATA;
+         6'd17: S_PFr[17] <= SDATA;
+         6'd18: S_PFr[18] <= SDATA;
+         6'd19: S_PFr[19] <= SDATA;
+         6'd20: S_PFr[20] <= SDATA;
+         6'd21: S_PFr[21] <= SDATA;
+         6'd22: S_PFr[22] <= SDATA;
+         6'd23: S_PFr[23] <= SDATA;
+         6'd24: S_PFr[24] <= SDATA;
+         6'd25: S_PFr[25] <= SDATA;
+         6'd26: S_PFr[26] <= SDATA;
+         6'd27: S_PFr[27] <= SDATA;
+         6'd28: S_PFr[28] <= SDATA;
+         6'd29: S_PFr[29] <= SDATA; 
+         6'd30: S_PFr[30] <= SDATA;
+         6'd31: S_PFr[31] <= SDATA;
+         6'd32: S_PFr[32] <= SDATA;
+         6'd33: S_PFr[33] <= SDATA; 
+         6'd34: S_PFr[34] <= SDATA;
+         6'd35: S_PFr[35] <= SDATA;
+         6'd36: S_PFr[36] <= SDATA;
+         6'd37: S_PFr[37] <= SDATA;
+         6'd38: S_PFr[38] <= SDATA; 
+         6'd39: S_PFr[39] <= SDATA;
+         6'd40: S_PFr[40] <= SDATA;
+         6'd41: S_PFr[41] <= SDATA; 
+         6'd42: S_PFr[42] <= SDATA;
+         6'd43: S_PFr[43] <= SDATA;
+         6'd44: S_PFr[44] <= SDATA;
+         6'd45: S_PFr[45] <= SDATA;
+         6'd46: S_PFr[46] <= SDATA; 
+         6'd47: S_PFr[47] <= SDATA;
+         default: ; 
+         endcase*/
+         end   
+      
+        
+    
+/*always @ (negedge SEN or negedge rst_n)
+   if(!rst_n) S_PFr2 <= 48'hffffffffffff;
+   else if(!SEN)
+    begin   
+    S_PFr2 <= S_PFr;
+    end 
+   */     
+//	else if(cnt == 5000)
+//	begin
+//	  timer <= timer+1'b1;	//每0.1ms增一
+//      if(!SEN) 
+//      begin
+//        case(timer)
+//               1: S_PFr2 <= S_PFr; 
+//               17: timer <= 1'b0;
+//          default: ;
+//        endcase		
+//      end
+//    end  
+    
+assign S_PF = S_PFr2;
+    
+endmodule
+      

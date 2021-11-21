@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../valve_board.gen/sources_1/ip/ila_0/sim/ila_0.v" \
+"../../../../valve_board.srcs/sources_1/new/valve_interface.v" \
+"../../../../valve_board.srcs/sources_1/new/valve_test.v" \
+"../../../../valve_board.srcs/sim_1/new/valve_board_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
