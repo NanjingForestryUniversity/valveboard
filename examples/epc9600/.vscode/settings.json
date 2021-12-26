@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "assert.h": "c",
+        "valve_init.h": "c",
+        "gpio.h": "c",
+        "type_traits": "c",
+        "gpio_common.h": "c",
+        "unistd.h": "c",
+        "stdint.h": "c",
+        "stat.h": "c",
+        "types.h": "c",
+        "pthread.h": "c",
+        "pthreadtypes.h": "c",
+        "valve.h": "c"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/miaow/zlg/two_tobacco",
+            "binaryPath": "/home/miaow/zlg/two_tobacco/gpio_test",
+            "binaryArgs": []
+        }
+    ]
+}

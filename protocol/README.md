@@ -14,9 +14,7 @@
 
 - LVDS差分
 
-- 100欧姆双绞线
-
-*电磁兼容、信号衰减什么的统统没测过，杜邦线、软排线、双绞线随便乱用即可
+- 灰色排线
 
 ## 数据链路层
 
@@ -34,6 +32,8 @@
 | t2     | Data output access time  | -    | 250  | 280  | ns   |
 | t3     | SEN hold time            | 250  | 500  | 750  | ns   |
 | t4     | Data output disable time | -    | 250  | 280  | ns   |
+
+
 *Condition at SCLK=1MHz
 
 下面是每一位数据的具体时序
@@ -46,6 +46,8 @@
 | ------ | ---------------------- | ---- | ---- | ---- | ---- |
 | t5     | Data output valid time | 50** | 500  | 750  | ns   |
 | t6     | Data output hold time  | 250  | 500  | 750  | ns   |
+
+
 *Condition at SCLK=1MHz
 **Limit value
 

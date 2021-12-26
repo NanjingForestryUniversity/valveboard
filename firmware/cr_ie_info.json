@@ -1,0 +1,22 @@
+{
+	"system" : {
+		"platform" : "windows64",
+		"os_name" : "Windows 10",
+		"os_version" : "10.0"
+	},
+	"error" : {
+		"executable" : "quartus_map",
+		"comment" : "not_applicable",
+		"error_message" : "Key not defined in data file: INT_PAD_COUNT",
+		"source_file" : "/quartus/ddb/dev/dev_pad_info_body.cpp",
+		"line" : "358",
+		"stack_trace" : "\t0x7ff8680a4263: DDB_DEV + 0x44263 (DEV_PAD_INFO::get_number_of_pads + 0x17cd3)\n\t0x7ff86637350d: db_cut + 0x29350d (?get_user_pins_available@CUT_RPT_UTILITY@@SAHXZ + 0x7d)\n\t0x7ff866396f2e: db_cut + 0x2b6f2e (?update_summary@CUT_RPT_UTILITY@@QEAAXW4CUT_SUMMARY_TYPE@@W4CUT_PROCESSING_STATUS@@_N222HH@Z + 0x3cde)\n\t0x7ff77e623f84: quartus_map + 0x23f84 (?write_reports@QSYN_FRAMEWORK@@UEAA_N_NPEBD@Z + 0x644)\n\t0x7ff885541587: comp_qexe + 0x11587 (qexe_do_normal + 0x267)\n\t0x7ff885546622: comp_qexe + 0x16622 (qexe_run + 0x432)\n\t0x7ff885547371: comp_qexe + 0x17371 (?qexe_standard_main@@YAHPEAVQEXE_FRAMEWORK@@PEAPEBUQEXE_OPTION_DEFINITION@@HPEAPEBD@Z + 0xc1)\n\t0x7ff77e61b42b: quartus_map + 0x1b42b (?qsyn_main@@YAHHPEAPEBD@Z + 0x53b)\n\t0x7ff890783258: CCL_MSG + 0x13258 (?msg_main_thread@@YAPEAXPEAX@Z + 0x18)\n\t0x7ff890784a5e: CCL_MSG + 0x14a5e (?msg_thread_wrapper@@YAPEAXP6APEAXPEAX@Z0@Z + 0x6e)\n\t0x7ff890896af0: ccl_mem + 0x16af0 (?mem_thread_wrapper@@YAPEAXP6APEAXPEAX@Z0@Z + 0x70)\n\t0x7ff890782af1: CCL_MSG + 0x12af1 (?msg_exe_main@@YAHHPEAPEBDP6AHH0@Z@Z + 0xa1)\n\t0x7ff77e62a236: quartus_map + 0x2a236 (__tmainCRTStartup + 0x10e)\n\t0x7ff8b24f7033: KERNEL32 + 0x17033 (BaseThreadInitThunk + 0x13)\n\t0x7ff8b3162650: ntdll + 0x52650 (RtlUserThreadStart + 0x20)\n",
+		"subsystem" : "DEV"
+	},
+	"quartus" : {
+		"quartus_bits" : "64",
+		"version" : "20.1.0",
+		"build" : "711",
+		"edition" : "Lite Edition"
+	}
+}

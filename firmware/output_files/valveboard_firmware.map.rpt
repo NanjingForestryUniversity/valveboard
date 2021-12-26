@@ -1,0 +1,381 @@
+Analysis & Synthesis report for valveboard_firmware
+Sun Dec 26 13:11:33 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |valveboard_firmware
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sun Dec 26 13:11:33 2021       ;
+; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name               ; valveboard_firmware                         ;
+; Top-level Entity Name       ; valveboard_firmware                         ;
+; Family                      ; MAX II                                      ;
+; Total logic elements        ; 468                                         ;
+; Total pins                  ; 101                                         ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                ;
++------------------------------------------------------------------+---------------------+---------------------+
+; Option                                                           ; Setting             ; Default Value       ;
++------------------------------------------------------------------+---------------------+---------------------+
+; Device                                                           ; EPM1270T144C5       ;                     ;
+; Top-level entity name                                            ; valveboard_firmware ; valveboard_firmware ;
+; Family name                                                      ; MAX II              ; Cyclone V           ;
+; Use smart compilation                                            ; Off                 ; Off                 ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                  ; On                  ;
+; Enable compact report table                                      ; Off                 ; Off                 ;
+; Restructure Multiplexers                                         ; Auto                ; Auto                ;
+; Create Debugging Nodes for IP Cores                              ; Off                 ; Off                 ;
+; Preserve fewer node names                                        ; On                  ; On                  ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable              ; Enable              ;
+; Verilog Version                                                  ; Verilog_2001        ; Verilog_2001        ;
+; VHDL Version                                                     ; VHDL_1993           ; VHDL_1993           ;
+; State Machine Processing                                         ; Auto                ; Auto                ;
+; Safe State Machine                                               ; Off                 ; Off                 ;
+; Extract Verilog State Machines                                   ; On                  ; On                  ;
+; Extract VHDL State Machines                                      ; On                  ; On                  ;
+; Ignore Verilog initial constructs                                ; Off                 ; Off                 ;
+; Iteration limit for constant Verilog loops                       ; 5000                ; 5000                ;
+; Iteration limit for non-constant Verilog loops                   ; 250                 ; 250                 ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                  ; On                  ;
+; Infer RAMs from Raw Logic                                        ; On                  ; On                  ;
+; Parallel Synthesis                                               ; On                  ; On                  ;
+; NOT Gate Push-Back                                               ; On                  ; On                  ;
+; Power-Up Don't Care                                              ; On                  ; On                  ;
+; Remove Redundant Logic Cells                                     ; Off                 ; Off                 ;
+; Remove Duplicate Registers                                       ; On                  ; On                  ;
+; Ignore CARRY Buffers                                             ; Off                 ; Off                 ;
+; Ignore CASCADE Buffers                                           ; Off                 ; Off                 ;
+; Ignore GLOBAL Buffers                                            ; Off                 ; Off                 ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                 ; Off                 ;
+; Ignore LCELL Buffers                                             ; Off                 ; Off                 ;
+; Ignore SOFT Buffers                                              ; On                  ; On                  ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                 ; Off                 ;
+; Optimization Technique                                           ; Balanced            ; Balanced            ;
+; Carry Chain Length                                               ; 70                  ; 70                  ;
+; Auto Carry Chains                                                ; On                  ; On                  ;
+; Auto Open-Drain Pins                                             ; On                  ; On                  ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                 ; Off                 ;
+; Auto Shift Register Replacement                                  ; Auto                ; Auto                ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                ; Auto                ;
+; Auto Clock Enable Replacement                                    ; On                  ; On                  ;
+; Allow Synchronous Control Signals                                ; On                  ; On                  ;
+; Force Use of Synchronous Clear Signals                           ; Off                 ; Off                 ;
+; Auto Resource Sharing                                            ; Off                 ; Off                 ;
+; Use LogicLock Constraints during Resource Balancing              ; On                  ; On                  ;
+; Ignore translate_off and synthesis_off directives                ; Off                 ; Off                 ;
+; Report Parameter Settings                                        ; On                  ; On                  ;
+; Report Source Assignments                                        ; On                  ; On                  ;
+; Report Connectivity Checks                                       ; On                  ; On                  ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                 ; Off                 ;
+; Synchronization Register Chain Length                            ; 2                   ; 2                   ;
+; Power Optimization During Synthesis                              ; Normal compilation  ; Normal compilation  ;
+; HDL message level                                                ; Level2              ; Level2              ;
+; Suppress Register Optimization Related Messages                  ; Off                 ; Off                 ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                ; 5000                ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                ; 5000                ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                 ; 100                 ;
+; Clock MUX Protection                                             ; On                  ; On                  ;
+; Block Design Naming                                              ; Auto                ; Auto                ;
+; Synthesis Effort                                                 ; Auto                ; Auto                ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                  ; On                  ;
+; Analysis & Synthesis Message Level                               ; Medium              ; Medium              ;
+; Disable Register Merging Across Hierarchies                      ; Auto                ; Auto                ;
++------------------------------------------------------------------+---------------------+---------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                     ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                       ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; valveboard_firmware.v            ; yes             ; User Verilog HDL File  ; C:/Users/guoyr/Desktop/qwert/valveboard_firmware.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Total logic elements                        ; 468     ;
+;     -- Combinational with no register       ; 155     ;
+;     -- Register only                        ; 18      ;
+;     -- Combinational with a register        ; 295     ;
+;                                             ;         ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 229     ;
+;     -- 3 input functions                    ; 111     ;
+;     -- 2 input functions                    ; 105     ;
+;     -- 1 input functions                    ; 5       ;
+;     -- 0 input functions                    ; 0       ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 375     ;
+;     -- arithmetic mode                      ; 93      ;
+;     -- qfbk mode                            ; 0       ;
+;     -- register cascade mode                ; 0       ;
+;     -- synchronous clear/load mode          ; 65      ;
+;     -- asynchronous clear/load mode         ; 311     ;
+;                                             ;         ;
+; Total registers                             ; 313     ;
+; Total logic cells in carry chains           ; 96      ;
+; I/O pins                                    ; 101     ;
+; Maximum fan-out node                        ; sys_clk ;
+; Maximum fan-out                             ; 313     ;
+; Total fan-out                               ; 2413    ;
+; Average fan-out                             ; 4.24    ;
++---------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name  ; Entity Name         ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------+---------------------+--------------+
+; |valveboard_firmware       ; 468 (468)   ; 313          ; 0          ; 101  ; 0            ; 155 (155)    ; 18 (18)           ; 295 (295)        ; 96 (96)         ; 0 (0)      ; |valveboard_firmware ; valveboard_firmware ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 313   ;
+; Number of registers using Synchronous Clear  ; 65    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 311   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 146   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; signal_high_voltage[0]~reg0               ; 1       ;
+; signal_high_voltage[1]~reg0               ; 1       ;
+; signal_high_voltage[2]~reg0               ; 1       ;
+; signal_high_voltage[3]~reg0               ; 1       ;
+; signal_high_voltage[4]~reg0               ; 1       ;
+; signal_high_voltage[5]~reg0               ; 1       ;
+; signal_high_voltage[6]~reg0               ; 1       ;
+; signal_high_voltage[7]~reg0               ; 1       ;
+; signal_high_voltage[8]~reg0               ; 1       ;
+; signal_high_voltage[9]~reg0               ; 1       ;
+; signal_high_voltage[10]~reg0              ; 1       ;
+; signal_high_voltage[11]~reg0              ; 1       ;
+; signal_high_voltage[12]~reg0              ; 1       ;
+; signal_high_voltage[13]~reg0              ; 1       ;
+; signal_high_voltage[14]~reg0              ; 1       ;
+; signal_high_voltage[15]~reg0              ; 1       ;
+; signal_high_voltage[16]~reg0              ; 1       ;
+; signal_high_voltage[17]~reg0              ; 1       ;
+; signal_high_voltage[18]~reg0              ; 1       ;
+; signal_high_voltage[19]~reg0              ; 1       ;
+; signal_high_voltage[20]~reg0              ; 1       ;
+; signal_high_voltage[21]~reg0              ; 1       ;
+; signal_high_voltage[22]~reg0              ; 1       ;
+; signal_high_voltage[23]~reg0              ; 1       ;
+; signal_high_voltage[24]~reg0              ; 1       ;
+; signal_high_voltage[25]~reg0              ; 1       ;
+; signal_high_voltage[26]~reg0              ; 1       ;
+; signal_high_voltage[27]~reg0              ; 1       ;
+; signal_high_voltage[28]~reg0              ; 1       ;
+; signal_high_voltage[29]~reg0              ; 1       ;
+; signal_high_voltage[30]~reg0              ; 1       ;
+; signal_high_voltage[31]~reg0              ; 1       ;
+; signal_high_voltage[32]~reg0              ; 1       ;
+; signal_high_voltage[33]~reg0              ; 1       ;
+; signal_high_voltage[34]~reg0              ; 1       ;
+; signal_high_voltage[35]~reg0              ; 1       ;
+; signal_high_voltage[36]~reg0              ; 1       ;
+; signal_high_voltage[37]~reg0              ; 1       ;
+; signal_high_voltage[38]~reg0              ; 1       ;
+; signal_high_voltage[39]~reg0              ; 1       ;
+; signal_high_voltage[40]~reg0              ; 1       ;
+; signal_high_voltage[41]~reg0              ; 1       ;
+; signal_high_voltage[42]~reg0              ; 1       ;
+; signal_high_voltage[43]~reg0              ; 1       ;
+; signal_high_voltage[44]~reg0              ; 1       ;
+; signal_high_voltage[45]~reg0              ; 1       ;
+; signal_high_voltage[46]~reg0              ; 1       ;
+; signal_high_voltage[47]~reg0              ; 1       ;
+; signal_low_voltage[0]~reg0                ; 1       ;
+; signal_low_voltage[1]~reg0                ; 1       ;
+; signal_low_voltage[2]~reg0                ; 1       ;
+; signal_low_voltage[3]~reg0                ; 1       ;
+; signal_low_voltage[4]~reg0                ; 1       ;
+; signal_low_voltage[5]~reg0                ; 1       ;
+; signal_low_voltage[6]~reg0                ; 1       ;
+; signal_low_voltage[7]~reg0                ; 1       ;
+; signal_low_voltage[8]~reg0                ; 1       ;
+; signal_low_voltage[9]~reg0                ; 1       ;
+; signal_low_voltage[10]~reg0               ; 1       ;
+; signal_low_voltage[11]~reg0               ; 1       ;
+; signal_low_voltage[12]~reg0               ; 1       ;
+; signal_low_voltage[13]~reg0               ; 1       ;
+; signal_low_voltage[14]~reg0               ; 1       ;
+; signal_low_voltage[15]~reg0               ; 1       ;
+; signal_low_voltage[16]~reg0               ; 1       ;
+; signal_low_voltage[17]~reg0               ; 1       ;
+; signal_low_voltage[18]~reg0               ; 1       ;
+; signal_low_voltage[19]~reg0               ; 1       ;
+; signal_low_voltage[20]~reg0               ; 1       ;
+; signal_low_voltage[21]~reg0               ; 1       ;
+; signal_low_voltage[22]~reg0               ; 1       ;
+; signal_low_voltage[23]~reg0               ; 1       ;
+; signal_low_voltage[24]~reg0               ; 1       ;
+; signal_low_voltage[25]~reg0               ; 1       ;
+; signal_low_voltage[26]~reg0               ; 1       ;
+; signal_low_voltage[27]~reg0               ; 1       ;
+; signal_low_voltage[28]~reg0               ; 1       ;
+; signal_low_voltage[29]~reg0               ; 1       ;
+; signal_low_voltage[30]~reg0               ; 1       ;
+; signal_low_voltage[31]~reg0               ; 1       ;
+; signal_low_voltage[32]~reg0               ; 1       ;
+; signal_low_voltage[33]~reg0               ; 1       ;
+; signal_low_voltage[34]~reg0               ; 1       ;
+; signal_low_voltage[35]~reg0               ; 1       ;
+; signal_low_voltage[36]~reg0               ; 1       ;
+; signal_low_voltage[37]~reg0               ; 1       ;
+; signal_low_voltage[38]~reg0               ; 1       ;
+; signal_low_voltage[39]~reg0               ; 1       ;
+; signal_low_voltage[40]~reg0               ; 1       ;
+; signal_low_voltage[41]~reg0               ; 1       ;
+; signal_low_voltage[42]~reg0               ; 1       ;
+; signal_low_voltage[43]~reg0               ; 1       ;
+; signal_low_voltage[44]~reg0               ; 1       ;
+; signal_low_voltage[45]~reg0               ; 1       ;
+; signal_low_voltage[46]~reg0               ; 1       ;
+; signal_low_voltage[47]~reg0               ; 1       ;
+; cache2_line_sdata[0]                      ; 2       ;
+; cache2_line_sdata[1]                      ; 2       ;
+; cache2_line_sdata[2]                      ; 2       ;
+; cache2_line_sdata[3]                      ; 2       ;
+; Total number of inverted registers = 197* ;         ;
++-------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |valveboard_firmware|fault_counter[26]             ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |valveboard_firmware|i[26]                         ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |valveboard_firmware|cnt_for_high_voltage_time[18] ;
+; 3:1                ; 48 bits   ; 96 LEs        ; 48 LEs               ; 48 LEs                 ; Yes        ; |valveboard_firmware|signal_high_voltage[3]~reg0   ;
+; 3:1                ; 48 bits   ; 96 LEs        ; 48 LEs               ; 48 LEs                 ; Yes        ; |valveboard_firmware|cache2_line_sdata[45]         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |valveboard_firmware  ;
++---------------------------------+----------------------------------+-----------------+
+; Parameter Name                  ; Value                            ; Type            ;
++---------------------------------+----------------------------------+-----------------+
+; CHANNEL_NUM                     ; 48                               ; Signed Integer  ;
+; CHANNEL_NUM_MINUS_1             ; 47                               ; Signed Integer  ;
+; HIGH_VOLTAGE_TIME               ; 00000000000000000001110011101000 ; Unsigned Binary ;
+; HIGH_VOLTAGE_TIME_MINUS_1       ; 00000000000000000001110011100111 ; Unsigned Binary ;
+; FAULT_COUNTER_THRESHOLD         ; 00000001001100010010110100000000 ; Unsigned Binary ;
+; FAULT_COUNTER_THRESHOLD_MINUS_1 ; 00000001001100010010110011111111 ; Unsigned Binary ;
+; FAULT_COUNTER_THRESHOLD_PLUS_1  ; 00000001001100010010110100000001 ; Unsigned Binary ;
++---------------------------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sun Dec 26 13:11:19 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off valveboard_firmware -c valveboard_firmware
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file valveboard_firmware.v
+    Info (12023): Found entity 1: valveboard_firmware File: C:/Users/guoyr/Desktop/qwert/valveboard_firmware.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file tb_valveboard_firmware.v
+    Info (12023): Found entity 1: tb_valveboard_firmware File: C:/Users/guoyr/Desktop/qwert/tb_valveboard_firmware.v Line: 2
+Info (12127): Elaborating entity "valveboard_firmware" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at valveboard_firmware.v(88): truncated value with size 32 to match size of target (5) File: C:/Users/guoyr/Desktop/qwert/valveboard_firmware.v Line: 88
+Info (18000): Registers with preset signals will power-up high File: C:/Users/guoyr/Desktop/qwert/valveboard_firmware.v Line: 288
+Info (21057): Implemented 569 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 96 output pins
+    Info (21061): Implemented 468 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4700 megabytes
+    Info: Processing ended: Sun Dec 26 13:11:33 2021
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:32
+
+

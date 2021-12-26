@@ -1,0 +1,11 @@
+Fitter Status : Successful - Sun Dec 26 13:11:39 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : valveboard_firmware
+Top-level Entity Name : valveboard_firmware
+Family : MAX II
+Device : EPM1270T144C5
+Timing Models : Final
+Total logic elements : 460 / 1,270 ( 36 % )
+Total pins : 101 / 116 ( 87 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

@@ -1,4 +1,0 @@
-Warning (10268): Verilog HDL information at PF1.v(161): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at PF1.v(206): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at PF1.v(250): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at PF1.v(294): always construct contains both blocking and non-blocking assignments

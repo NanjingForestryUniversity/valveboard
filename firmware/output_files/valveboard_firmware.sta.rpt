@@ -1,0 +1,691 @@
+Timing Analyzer report for valveboard_firmware
+Sun Dec 26 13:11:44 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'sys_clk'
+ 12. Hold: 'sys_clk'
+ 13. Setup Transfers
+ 14. Hold Transfers
+ 15. Report TCCS
+ 16. Report RSKM
+ 17. Unconstrained Paths Summary
+ 18. Clock Status Summary
+ 19. Unconstrained Input Ports
+ 20. Unconstrained Output Ports
+ 21. Unconstrained Input Ports
+ 22. Unconstrained Output Ports
+ 23. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; valveboard_firmware                                 ;
+; Device Family         ; MAX II                                              ;
+; Device Name           ; EPM1270T144C5                                       ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                              ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets     ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; sys_clk    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { sys_clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 82.75 MHz ; 82.75 MHz       ; sys_clk    ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------+
+; Setup Summary                     ;
++---------+---------+---------------+
+; Clock   ; Slack   ; End Point TNS ;
++---------+---------+---------------+
+; sys_clk ; -11.085 ; -2239.564     ;
++---------+---------+---------------+
+
+
++---------------------------------+
+; Hold Summary                    ;
++---------+-------+---------------+
+; Clock   ; Slack ; End Point TNS ;
++---------+-------+---------------+
+; sys_clk ; 1.386 ; 0.000         ;
++---------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++----------------------------------+
+; Minimum Pulse Width Summary      ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; sys_clk ; -2.289 ; -2.289        ;
++---------+--------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Setup: 'sys_clk'                                                                                                  ;
++---------+-----------+-----------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node ; To Node               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+-----------+-----------------------+--------------+-------------+--------------+------------+------------+
+; -11.085 ; i[29]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.752     ;
+; -11.085 ; i[29]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.752     ;
+; -11.085 ; i[29]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.752     ;
+; -11.040 ; i[29]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.707     ;
+; -11.040 ; i[29]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.707     ;
+; -10.937 ; i[28]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.604     ;
+; -10.937 ; i[28]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.604     ;
+; -10.937 ; i[28]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.604     ;
+; -10.902 ; i[29]     ; cache2_line_sdata[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.569     ;
+; -10.902 ; i[29]     ; cache2_line_sdata[14] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.569     ;
+; -10.902 ; i[29]     ; cache2_line_sdata[15] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.569     ;
+; -10.895 ; i[11]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.562     ;
+; -10.895 ; i[11]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.562     ;
+; -10.895 ; i[11]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.562     ;
+; -10.892 ; i[28]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.559     ;
+; -10.892 ; i[28]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.559     ;
+; -10.862 ; i[25]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.529     ;
+; -10.862 ; i[25]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.529     ;
+; -10.862 ; i[25]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.529     ;
+; -10.850 ; i[11]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.517     ;
+; -10.850 ; i[11]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.517     ;
+; -10.817 ; i[25]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.484     ;
+; -10.817 ; i[25]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.484     ;
+; -10.754 ; i[28]     ; cache2_line_sdata[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.421     ;
+; -10.754 ; i[28]     ; cache2_line_sdata[14] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.421     ;
+; -10.754 ; i[28]     ; cache2_line_sdata[15] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.421     ;
+; -10.753 ; i[3]      ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.420     ;
+; -10.753 ; i[3]      ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.420     ;
+; -10.753 ; i[3]      ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.420     ;
+; -10.750 ; i[26]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.417     ;
+; -10.750 ; i[26]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.417     ;
+; -10.750 ; i[26]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.417     ;
+; -10.712 ; i[11]     ; cache2_line_sdata[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.379     ;
+; -10.712 ; i[11]     ; cache2_line_sdata[14] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.379     ;
+; -10.712 ; i[11]     ; cache2_line_sdata[15] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.379     ;
+; -10.708 ; i[3]      ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.375     ;
+; -10.708 ; i[3]      ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.375     ;
+; -10.705 ; i[26]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.372     ;
+; -10.705 ; i[26]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.372     ;
+; -10.679 ; i[25]     ; cache2_line_sdata[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.346     ;
+; -10.679 ; i[25]     ; cache2_line_sdata[14] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.346     ;
+; -10.679 ; i[25]     ; cache2_line_sdata[15] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.346     ;
+; -10.670 ; i[15]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.337     ;
+; -10.670 ; i[15]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.337     ;
+; -10.670 ; i[15]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.337     ;
+; -10.663 ; i[29]     ; cache_line_sdata[11]  ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.330     ;
+; -10.662 ; i[12]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.329     ;
+; -10.662 ; i[12]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.329     ;
+; -10.662 ; i[12]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.329     ;
+; -10.634 ; i[24]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.301     ;
+; -10.634 ; i[24]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.301     ;
+; -10.634 ; i[24]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.301     ;
+; -10.625 ; i[15]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.292     ;
+; -10.625 ; i[15]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.292     ;
+; -10.617 ; i[12]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.284     ;
+; -10.617 ; i[12]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.284     ;
+; -10.609 ; i[2]      ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.276     ;
+; -10.609 ; i[2]      ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.276     ;
+; -10.609 ; i[2]      ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.276     ;
+; -10.604 ; i[1]      ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.271     ;
+; -10.604 ; i[1]      ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.271     ;
+; -10.604 ; i[1]      ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.271     ;
+; -10.599 ; i[13]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.266     ;
+; -10.599 ; i[13]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.266     ;
+; -10.599 ; i[13]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.266     ;
+; -10.589 ; i[24]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.256     ;
+; -10.589 ; i[24]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.256     ;
+; -10.580 ; i[20]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.247     ;
+; -10.580 ; i[20]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.247     ;
+; -10.580 ; i[20]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.247     ;
+; -10.570 ; i[3]      ; cache2_line_sdata[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.237     ;
+; -10.570 ; i[3]      ; cache2_line_sdata[14] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.237     ;
+; -10.570 ; i[3]      ; cache2_line_sdata[15] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.237     ;
+; -10.567 ; i[26]     ; cache2_line_sdata[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.234     ;
+; -10.567 ; i[26]     ; cache2_line_sdata[14] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.234     ;
+; -10.567 ; i[26]     ; cache2_line_sdata[15] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.234     ;
+; -10.564 ; i[2]      ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.231     ;
+; -10.564 ; i[2]      ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.231     ;
+; -10.559 ; i[1]      ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.226     ;
+; -10.559 ; i[1]      ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.226     ;
+; -10.554 ; i[13]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.221     ;
+; -10.554 ; i[13]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.221     ;
+; -10.554 ; i[14]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.221     ;
+; -10.554 ; i[14]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.221     ;
+; -10.554 ; i[14]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.221     ;
+; -10.535 ; i[20]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.202     ;
+; -10.535 ; i[20]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.202     ;
+; -10.516 ; i[22]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.183     ;
+; -10.516 ; i[22]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.183     ;
+; -10.516 ; i[22]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.183     ;
+; -10.515 ; i[28]     ; cache_line_sdata[11]  ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.182     ;
+; -10.509 ; i[14]     ; cache2_line_sdata[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.176     ;
+; -10.509 ; i[14]     ; cache2_line_sdata[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.176     ;
+; -10.504 ; i[17]     ; cache2_line_sdata[17] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.171     ;
+; -10.504 ; i[17]     ; cache2_line_sdata[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.171     ;
+; -10.504 ; i[17]     ; cache2_line_sdata[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.171     ;
+; -10.487 ; i[15]     ; cache2_line_sdata[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.154     ;
+; -10.487 ; i[15]     ; cache2_line_sdata[14] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.154     ;
+; -10.487 ; i[15]     ; cache2_line_sdata[15] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.154     ;
+; -10.479 ; i[12]     ; cache2_line_sdata[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.146     ;
++---------+-----------+-----------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'sys_clk'                                                                                                                                                 ;
++-------+-----------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                               ; To Node                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.386 ; tmp_cache_line_sdata[1]                 ; tmp_cache_line_sdata[2]                 ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.607      ;
+; 1.387 ; tmp_cache_line_sdata[3]                 ; tmp_cache_line_sdata[4]                 ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.608      ;
+; 1.396 ; cache_line_sclk[1]                      ; cache_line_sclk[2]                      ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.617      ;
+; 1.412 ; cache_line_sen[3]                       ; cache_line_sen[4]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.633      ;
+; 1.424 ; cache_line_sen[1]                       ; cache_line_sen[2]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.645      ;
+; 1.642 ; tmp_cache_line_sdata[2]                 ; tmp_cache_line_sdata[3]                 ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.863      ;
+; 1.653 ; tmp_cache_line_sdata[4]                 ; fiter_line_sdata                        ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.874      ;
+; 1.655 ; cache_line_sclk[0]                      ; cache_line_sclk[1]                      ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.876      ;
+; 1.656 ; tmp_cache_line_sdata[0]                 ; tmp_cache_line_sdata[1]                 ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.877      ;
+; 1.659 ; cache2_line_sdata[21]                   ; signal_low_voltage[21]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.880      ;
+; 1.662 ; cache2_line_sdata[13]                   ; signal_high_voltage[13]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.883      ;
+; 1.662 ; cache2_line_sdata[14]                   ; signal_low_voltage[14]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.883      ;
+; 1.662 ; cache_line_sen[0]                       ; cache_line_sen[1]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.883      ;
+; 1.662 ; cache_line_sclk[2]                      ; cache_line_sclk[3]                      ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.883      ;
+; 1.664 ; cache_line_sdata[35]                    ; cache2_line_sdata[35]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.885      ;
+; 1.666 ; cache2_line_sdata[7]                    ; signal_high_voltage[7]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.887      ;
+; 1.667 ; cache2_line_sdata[14]                   ; signal_high_voltage[14]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.888      ;
+; 1.671 ; cache2_line_sdata[17]                   ; signal_low_voltage[17]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.892      ;
+; 1.678 ; cache2_line_sdata[16]                   ; signal_low_voltage[16]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.899      ;
+; 1.679 ; cache2_line_sdata[27]                   ; signal_high_voltage[27]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.900      ;
+; 1.679 ; cache2_line_sdata[19]                   ; signal_low_voltage[19]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.900      ;
+; 1.681 ; cache2_line_sdata[22]                   ; signal_low_voltage[22]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.902      ;
+; 1.682 ; cache2_line_sdata[27]                   ; signal_low_voltage[27]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.903      ;
+; 1.685 ; cache2_line_sdata[22]                   ; signal_high_voltage[22]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.906      ;
+; 1.685 ; cache2_line_sdata[25]                   ; signal_low_voltage[25]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.906      ;
+; 1.686 ; cache2_line_sdata[16]                   ; signal_high_voltage[16]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.907      ;
+; 1.686 ; cache2_line_sdata[38]                   ; signal_low_voltage[38]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.907      ;
+; 1.687 ; cache2_line_sdata[38]                   ; signal_high_voltage[38]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.908      ;
+; 1.748 ; cache_line_sclk[3]                      ; cache_line_sclk[4]                      ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.969      ;
+; 1.867 ; cache_enable_count_high_voltage_time[0] ; cache_enable_count_high_voltage_time[1] ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.088      ;
+; 1.875 ; cache_line_sen[4]                       ; negedge_line_sen                        ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.096      ;
+; 1.898 ; cache_line_sdata[14]                    ; cache_line_sdata[14]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.119      ;
+; 1.898 ; cache_line_sdata[26]                    ; cache_line_sdata[26]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.119      ;
+; 1.898 ; cache_line_sdata[42]                    ; cache_line_sdata[42]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.119      ;
+; 1.899 ; cache_line_sdata[9]                     ; cache_line_sdata[9]                     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.120      ;
+; 1.907 ; cache_line_sdata[20]                    ; cache_line_sdata[20]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.128      ;
+; 1.907 ; cache_line_sdata[21]                    ; cache_line_sdata[21]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.128      ;
+; 1.908 ; cache_line_sdata[4]                     ; cache_line_sdata[4]                     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.129      ;
+; 1.908 ; cache_line_sdata[12]                    ; cache_line_sdata[12]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.129      ;
+; 1.908 ; cache_line_sdata[19]                    ; cache_line_sdata[19]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.129      ;
+; 1.908 ; cache_line_sdata[28]                    ; cache_line_sdata[28]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.129      ;
+; 1.909 ; cache_line_sdata[22]                    ; cache_line_sdata[22]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.130      ;
+; 1.916 ; cache_line_sdata[45]                    ; cache_line_sdata[45]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.137      ;
+; 1.918 ; cache_line_sdata[1]                     ; cache_line_sdata[1]                     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.139      ;
+; 1.918 ; cache_line_sdata[17]                    ; cache_line_sdata[17]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.139      ;
+; 1.919 ; cache_line_sdata[0]                     ; cache_line_sdata[0]                     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.140      ;
+; 1.920 ; cache2_line_sdata[31]                   ; signal_high_voltage[31]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.141      ;
+; 1.922 ; cache_line_sdata[0]                     ; cache2_line_sdata[0]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.143      ;
+; 1.923 ; cache2_line_sdata[20]                   ; signal_high_voltage[20]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.144      ;
+; 1.924 ; cache_line_sdata[1]                     ; cache2_line_sdata[1]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.145      ;
+; 1.925 ; cache2_line_sdata[20]                   ; signal_low_voltage[20]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.146      ;
+; 1.925 ; cache2_line_sdata[31]                   ; signal_low_voltage[31]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.146      ;
+; 1.929 ; cache_line_sdata[32]                    ; cache_line_sdata[32]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.150      ;
+; 1.930 ; cache_line_sdata[32]                    ; cache2_line_sdata[32]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.151      ;
+; 1.934 ; cache_line_sdata[31]                    ; cache_line_sdata[31]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.155      ;
+; 1.935 ; cache2_line_sdata[26]                   ; signal_high_voltage[26]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.156      ;
+; 1.939 ; cache2_line_sdata[29]                   ; signal_high_voltage[29]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.160      ;
+; 1.940 ; cache2_line_sdata[26]                   ; signal_low_voltage[26]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.161      ;
+; 1.940 ; cache2_line_sdata[29]                   ; signal_low_voltage[29]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.161      ;
+; 1.941 ; cache2_line_sdata[28]                   ; signal_low_voltage[28]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.162      ;
+; 1.947 ; cache2_line_sdata[30]                   ; signal_low_voltage[30]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.168      ;
+; 1.955 ; cache2_line_sdata[46]                   ; signal_high_voltage[46]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.176      ;
+; 1.958 ; cache2_line_sdata[42]                   ; signal_high_voltage[42]~reg0            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.179      ;
+; 2.013 ; cache2_line_sdata[8]                    ; signal_low_voltage[8]~reg0              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.234      ;
+; 2.017 ; cache2_line_sdata[8]                    ; signal_high_voltage[8]~reg0             ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.238      ;
+; 2.107 ; cache_line_sdata[8]                     ; cache_line_sdata[8]                     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.328      ;
+; 2.107 ; cache_line_sdata[25]                    ; cache_line_sdata[25]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.328      ;
+; 2.107 ; cache_line_sdata[30]                    ; cache_line_sdata[30]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.328      ;
+; 2.111 ; filter_line_sen                         ; filter_line_sen                         ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.332      ;
+; 2.116 ; i[6]                                    ; i[6]                                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; i[16]                                   ; i[16]                                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; fault_counter[16]                       ; fault_counter[16]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; fault_counter[6]                        ; fault_counter[6]                        ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.117 ; i[13]                                   ; i[13]                                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; i[23]                                   ; i[23]                                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; fault_counter[13]                       ; fault_counter[13]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; fault_counter[23]                       ; fault_counter[23]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; cache_line_sdata[2]                     ; cache_line_sdata[2]                     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; cache_line_sdata[23]                    ; cache_line_sdata[23]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; cache_line_sdata[34]                    ; cache_line_sdata[34]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; cache_line_sdata[36]                    ; cache_line_sdata[36]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; cache_line_sdata[44]                    ; cache_line_sdata[44]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.123 ; cache2_line_sdata[6]                    ; signal_low_voltage[6]~reg0              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.344      ;
+; 2.126 ; i[5]                                    ; i[5]                                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; i[7]                                    ; i[7]                                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; i[8]                                    ; i[8]                                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; i[15]                                   ; i[15]                                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; i[17]                                   ; i[17]                                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; i[18]                                   ; i[18]                                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; i[25]                                   ; i[25]                                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; fault_counter[15]                       ; fault_counter[15]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; fault_counter[8]                        ; fault_counter[8]                        ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; fault_counter[7]                        ; fault_counter[7]                        ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; fault_counter[17]                       ; fault_counter[17]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; fault_counter[18]                       ; fault_counter[18]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; fault_counter[25]                       ; fault_counter[25]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; fault_counter[26]                       ; fault_counter[26]                       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.127 ; cache_line_sdata[7]                     ; cache_line_sdata[7]                     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.348      ;
+; 2.127 ; cache_line_sdata[24]                    ; cache_line_sdata[24]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.348      ;
+; 2.127 ; cache_line_sdata[33]                    ; cache_line_sdata[33]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.348      ;
++-------+-----------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; sys_clk    ; sys_clk  ; 10137    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; sys_clk    ; sys_clk  ; 10137    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 4     ; 4    ;
+; Unconstrained Input Port Paths  ; 353   ; 353  ;
+; Unconstrained Output Ports      ; 96    ; 96   ;
+; Unconstrained Output Port Paths ; 96    ; 96   ;
++---------------------------------+-------+------+
+
+
++----------------------------------------+
+; Clock Status Summary                   ;
++---------+---------+------+-------------+
+; Target  ; Clock   ; Type ; Status      ;
++---------+---------+------+-------------+
+; sys_clk ; sys_clk ; Base ; Constrained ;
++---------+---------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; line_sclk  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; line_sdata ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; line_sen   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rst_n      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                      ;
++-------------------------+---------------------------------------------------------------------------------------+
+; Output Port             ; Comment                                                                               ;
++-------------------------+---------------------------------------------------------------------------------------+
+; signal_high_voltage[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[8]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[9]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[10] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[11] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[12] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[13] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[14] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[15] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[16] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[17] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[18] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[19] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[20] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[21] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[22] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[23] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[24] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[25] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[26] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[27] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[28] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[29] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[30] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[31] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[32] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[33] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[34] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[35] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[36] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[37] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[38] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[39] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[40] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[41] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[42] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[43] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[44] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[45] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[46] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[47] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[0]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[1]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[2]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[3]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[4]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[5]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[6]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[7]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[8]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[9]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[10]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[11]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[12]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[13]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[14]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[15]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[16]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[17]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[18]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[19]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[20]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[21]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[22]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[23]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[24]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[25]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[26]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[27]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[28]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[29]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[30]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[31]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[32]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[33]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[34]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[35]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[36]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[37]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[38]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[39]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[40]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[41]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[42]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[43]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[44]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[45]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[46]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[47]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; line_sclk  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; line_sdata ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; line_sen   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rst_n      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                      ;
++-------------------------+---------------------------------------------------------------------------------------+
+; Output Port             ; Comment                                                                               ;
++-------------------------+---------------------------------------------------------------------------------------+
+; signal_high_voltage[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[8]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[9]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[10] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[11] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[12] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[13] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[14] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[15] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[16] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[17] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[18] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[19] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[20] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[21] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[22] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[23] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[24] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[25] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[26] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[27] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[28] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[29] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[30] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[31] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[32] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[33] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[34] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[35] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[36] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[37] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[38] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[39] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[40] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[41] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[42] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[43] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[44] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[45] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[46] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_high_voltage[47] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[0]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[1]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[2]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[3]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[4]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[5]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[6]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[7]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[8]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[9]   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[10]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[11]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[12]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[13]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[14]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[15]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[16]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[17]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[18]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[19]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[20]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[21]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[22]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[23]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[24]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[25]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[26]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[27]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[28]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[29]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[30]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[31]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[32]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[33]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[34]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[35]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[36]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[37]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[38]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[39]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[40]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[41]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[42]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[43]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[44]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[45]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[46]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; signal_low_voltage[47]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sun Dec 26 13:11:42 2021
+Info: Command: quartus_sta valveboard_firmware -c valveboard_firmware
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'valveboard_firmware.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name sys_clk sys_clk
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -11.085
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -11.085           -2239.564 sys_clk 
+Info (332146): Worst-case hold slack is 1.386
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.386               0.000 sys_clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 sys_clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4662 megabytes
+    Info: Processing ended: Sun Dec 26 13:11:44 2021
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
