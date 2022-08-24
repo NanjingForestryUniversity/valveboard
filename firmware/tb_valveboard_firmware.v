@@ -18,7 +18,7 @@ module tb_valveboard_firmware();
 			.signal_high_voltage (signal_high_voltage),
 			.signal_low_voltage (signal_low_voltage)
 		);
-
+    reg [47:0] valve_data;
     initial begin
         sys_clk = 0;
         rst_n = 0;
@@ -28,27 +28,28 @@ module tb_valveboard_firmware();
 		#500;
 		rst_n = 1;
 		#500;
+		valve_data = 0;
 		
     end
 	
 	integer idx;
-	reg [47:0] valve_data;
-	always #1000000 begin
-		valve_data <= ~48'b1000_0000_0000_0000_0000_0000_0000_0001_0000_0000_0000_1001;
-		line_sen = 1;#100;
+	
+	always #500000 begin
+		valve_data = valve_data + 1;
+		line_sen = 1;#50;
 		for (idx = 0; idx < 48; idx = idx + 1) begin
 			if (valve_data[idx] == 0) begin
-				line_sdata = 0;#250;
-				line_sclk = 1;#250;
-				line_sdata = 1;#250;
-				line_sclk = 0;#500;
+				line_sdata = 0;#125;
+				line_sclk = 1;#125;
+				line_sdata = 1;#125;
+				line_sclk = 0;#250;
 			end
 			else begin
-				line_sclk = 1;#500;
-				line_sclk = 0;#500;
+				line_sclk = 1;#250;
+				line_sclk = 0;#250;
 			end
 		end
-		#100;
+		#50;
 		line_sen = 0;
 	end
 	

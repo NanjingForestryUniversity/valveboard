@@ -1,8 +1,8 @@
 /* 
-丁坤的阀板程序 2021/12/26
-对应原理图ValveBoard Kun v1.1.pdf
-将b01-h1.1-p1.1-f1.1中的高压时间改为0.37ms
-使用的是合肥的阀，1A电流需0.37ms的100V(阀标称100V，现场供电为96V)高电压
+丁坤的阀板程序v1.3 2022/8/24
+对应b02-h1.3-p1.1-f1.3
+经测试，高压时间改为0.2ms
+使用的是合肥的阀，1.5A电流需0.2ms的100V(阀标称100V，现场供电为96V)高电压
 */
 
 module valveboard_firmware(
@@ -19,8 +19,8 @@ module valveboard_firmware(
 		
 	parameter CHANNEL_NUM = 48;
 	parameter CHANNEL_NUM_MINUS_1 = CHANNEL_NUM - 1;
-	parameter HIGH_VOLTAGE_TIME = 32'd7400;  // 高压时间HIGH_VOLTAGE_TIME / 20MHz = 0.37ms
-	parameter HIGH_VOLTAGE_TIME_MINUS_1 = HIGH_VOLTAGE_TIME - 1;  // 高压时间HIGH_VOLTAGE_TIME / 20MHz = 2ms
+	parameter HIGH_VOLTAGE_TIME = 32'd4000;  // 高压时间HIGH_VOLTAGE_TIME / 20MHz = 0.2ms
+	parameter HIGH_VOLTAGE_TIME_MINUS_1 = HIGH_VOLTAGE_TIME - 1;
 	parameter FAULT_COUNTER_THRESHOLD = 32'd20_000_000;  // 通讯中断超过FAULT_COUNTER_THRESHOLD / 20MHz = 1s，就关所有阀
 	parameter FAULT_COUNTER_THRESHOLD_MINUS_1 = FAULT_COUNTER_THRESHOLD - 1;
 	parameter FAULT_COUNTER_THRESHOLD_PLUS_1 = FAULT_COUNTER_THRESHOLD + 1;
@@ -31,6 +31,7 @@ module valveboard_firmware(
 	reg [31:0] i;
 	reg [31:0] fault_counter;
 	reg [0:0] fault_flag [0:7];  // fault_flag支持8类错误信号
+	
 	
 	/**
 	 * 维护错误信号
@@ -256,19 +257,24 @@ module valveboard_firmware(
 
 	/**
 	 * recv_complete下降沿缓存cache_line_sdata数据到cache2_line_sdata并开始高电压时间计时
+	 * last_line_data则保存上一次的输出数据
 	 */
 	reg [CHANNEL_NUM_MINUS_1:0] cache2_line_sdata;
+	reg [CHANNEL_NUM_MINUS_1:0] last_line_sdata;
 	always @(posedge sys_clk or negedge rst_n) begin
 		if (!rst_n) begin
 			enable_count_high_voltage_time <= 0;
 			cache2_line_sdata <= ~0;
+			last_line_sdata <= ~0;
 		end
 		else if (total_fault_flag) begin
 			enable_count_high_voltage_time <= 0;
 			cache2_line_sdata <= ~0;
+			last_line_sdata <= ~0;
 		end
 		else if (recv_complete) begin
 			enable_count_high_voltage_time <= 1;
+			last_line_sdata <= cache2_line_sdata;
 			cache2_line_sdata <= cache_line_sdata;
 		end
 		else begin
@@ -276,9 +282,10 @@ module valveboard_firmware(
 		end
 		
 	end
-	
+
 	/**
 	 * 高电压时间内(is_high_voltage_time高电平时)，按cache2_line_sdata打开所需高电压；高电压时间后关闭
+	 * 需要注意的是，已经开着的喷阀， 在高压时间内，不会再次使用高电压，只是保持低电压
 	 * 按cache2_line_sdata打开低电压
 	 * total_fault_flag会关闭所有喷阀
 	 */
@@ -292,7 +299,8 @@ module valveboard_firmware(
 			signal_high_voltage <= ~0;
 		end
 		else if (is_high_voltage_time) begin
-			signal_high_voltage <= cache2_line_sdata;
+			// 已经开着的喷阀，在高压时间内，不会再次使用高电压，只是保持低电压
+			signal_high_voltage <= ~last_line_sdata | cache2_line_sdata;
 			signal_low_voltage <= cache2_line_sdata;
 		end
 		else begin
