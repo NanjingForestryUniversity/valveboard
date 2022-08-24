@@ -6,8 +6,8 @@ module tb_valveboard_firmware();
 	reg line_sen;
 	reg line_sdata;
 	
-	wire [48:0]  signal_high_voltage;
-	wire [48:0]  signal_low_voltage;
+	wire [47:0]  signal_high_voltage;
+	wire [47:0]  signal_low_voltage;
 
 	valveboard_firmware inst_valveboard_firmware(
 			.sys_clk (sys_clk),
@@ -38,7 +38,7 @@ module tb_valveboard_firmware();
 		valve_data = valve_data + 1;
 		line_sen = 1;#50;
 		for (idx = 0; idx < 48; idx = idx + 1) begin
-			if (valve_data[idx] == 0) begin
+			if (valve_data[idx] == 1) begin
 				line_sdata = 0;#125;
 				line_sclk = 1;#125;
 				line_sdata = 1;#125;

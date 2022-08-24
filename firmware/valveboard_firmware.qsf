@@ -262,8 +262,8 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH normal_test -section_id eda_simulation
-set_global_assignment -name EDA_TEST_BENCH_NAME normal_test -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id normal_test
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME normal_test -section_id normal_test
-set_global_assignment -name EDA_TEST_BENCH_FILE tb_valveboard_firmware.v -section_id normal_test
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH nnormal_test -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME nnormal_test -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id nnormal_test
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME nnormal_test -section_id nnormal_test
+set_global_assignment -name EDA_TEST_BENCH_FILE tb_valveboard_firmware.v -section_id nnormal_test
