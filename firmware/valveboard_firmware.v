@@ -1,5 +1,5 @@
 /* 
-丁坤的阀板程序v1.4-beta1 2022/8/24
+阀板程序v1.4 2022/8/31
 经测试，高压时间改为0.2ms
 使用的是合肥的阀，1.5A电流需0.2ms的100V(阀标称100V，现场供电为96V)高电压
 */
@@ -20,14 +20,15 @@ module valveboard_firmware(
 	parameter CHANNEL_NUM_MINUS_1 = CHANNEL_NUM - 1;
 	parameter HIGH_VOLTAGE_TIME = 32'd4000;  // 高压时间HIGH_VOLTAGE_TIME / 20MHz = 0.2ms
 	parameter HIGH_VOLTAGE_TIME_MINUS_1 = HIGH_VOLTAGE_TIME - 1;
-	parameter LONGOPEN_COUNTER_THRESHOLD = 7'd20;  // 一路阀打开超过LONGOPEN_COUNTER_THRESHOLD * 200_000 / 20MHz = 200ms就关闭
-	parameter DISCONNECT_FAULT_COUNTER_THRESHOLD = 32'd4_000_000;  // 通讯中断超过FAULT_COUNTER_THRESHOLD / 20MHz = 200ms，就关所有阀
-	parameter DISCONNECT_FAULT_COUNTER_THRESHOLD_MINUS_1 = DISCONNECT_FAULT_COUNTER_THRESHOLD - 1;
-	parameter DISCONNECT_FAULT_COUNTER_THRESHOLD_PLUS_1 = DISCONNECT_FAULT_COUNTER_THRESHOLD + 1;
+	parameter FAULT_COUNTER_THRESHOLD = 32'd20_000_000;  // 通讯中断超过FAULT_COUNTER_THRESHOLD / 20MHz = 200ms，就关所有阀
+	parameter FAULT_COUNTER_THRESHOLD_MINUS_1 = FAULT_COUNTER_THRESHOLD - 1;
+	parameter FAULT_COUNTER_THRESHOLD_PLUS_1 = FAULT_COUNTER_THRESHOLD + 1;
 	
+		
 	
+	reg [CHANNEL_NUM_MINUS_1:0] cache_signal_high_voltage;
 	reg [31:0] i;
-	reg [31:0] disconnect_fault_counter;
+	reg [31:0] fault_counter;
 	reg [0:0] fault_flag [0:7];  // fault_flag支持8类错误信号
 	
 	
@@ -169,27 +170,27 @@ module valveboard_firmware(
 	end
 	 
 	/**
-	 * 若通讯中断，超过DISCONNECT_FAULT_COUNTER_THRESHOLD个csys_clk就置位fault_flag[1]
+	 * 若通讯中断，超过FAULT_COUNTER_THRESHOLD个csys_clk就置位fault_flag[1]
 	 * fault_flag[1]在posedge_line_sclk上升沿时刻清楚
 	 */
 	always @(posedge sys_clk or negedge rst_n) begin
 		if (!rst_n) begin
-			disconnect_fault_counter <= 0;
+			fault_counter <= 0;
 			fault_flag[1] <= 0;
 		end
 		else if ({cache_line_sclk, line_sclk} == 6'b011111) begin
-			disconnect_fault_counter <= 0;
+			fault_counter <= 0;
 			fault_flag[1] <= 0;
 		end
 		else begin
-			if (disconnect_fault_counter >= DISCONNECT_FAULT_COUNTER_THRESHOLD_PLUS_1)
+			if (fault_counter >= FAULT_COUNTER_THRESHOLD_PLUS_1)
 				fault_flag[1] <= 1;
-			else if (disconnect_fault_counter >= DISCONNECT_FAULT_COUNTER_THRESHOLD_MINUS_1) begin
-				disconnect_fault_counter <= disconnect_fault_counter + 1;
+			else if (fault_counter >= FAULT_COUNTER_THRESHOLD_MINUS_1) begin
+				fault_counter <= fault_counter + 1;
 				fault_flag[1] <= 1;
 			end
 			else begin
-				disconnect_fault_counter <= disconnect_fault_counter + 1;
+				fault_counter <= fault_counter + 1;
 				fault_flag[1] <= 0;
 			end
 		end
@@ -280,79 +281,13 @@ module valveboard_firmware(
 		end
 		
 	end
-	
-	
-	/**
-	 * 对系统时钟做分频得到100Hz的脉冲信号，后续用于判断阀是否长时间开启
-	 * 这样是不严谨的，应当以数据接收完成时刻开始计时，但CPLD资源不够了
-	 */
-	reg [17:0] sys_clk_divider;
-	reg sys_clk_div;
-	always @(posedge sys_clk or negedge rst_n) begin
-		if (!rst_n) begin
-			sys_clk_divider <= 0;
-			sys_clk_div <= 0;
-		end
-		else if (total_fault_flag) begin
-			sys_clk_divider <= 0;
-			sys_clk_div <= 0;
-		end
-		else begin
-			if (sys_clk_divider == 199_999) begin
-				sys_clk_divider <= 0;
-				sys_clk_div <= 1;
-			end
-			else begin
-				sys_clk_divider <= sys_clk_divider + 1;
-				sys_clk_div <= 0;
-			end
-		end
-	end
-	
-	/*
-	 * 在100Hz的脉冲信号时更新每路阀的开启时间计数器
-	 * 到达超时时间后暂停计数
-	 * 用100Hz的信号的原因是资源不够，必须减少计数器位宽
-	 * 这导致计数器存在随机的单周期不稳定时间
-	 */
-	reg [7:0] longopen_counter [0:CHANNEL_NUM_MINUS_1];	
-	integer k;
-	always @(posedge sys_clk or negedge rst_n) begin
-		if (!rst_n) begin
-			for (k = 0; k < CHANNEL_NUM; k = k + 1) begin
-				longopen_counter[k] <= 0;
-			end
-		end
-		else if (total_fault_flag) begin
-			for (k = 0; k < CHANNEL_NUM; k = k + 1) begin
-				longopen_counter[k] <= 0;
-			end
-		end
-		else begin
-			for (k = 0; k < CHANNEL_NUM; k = k + 1) begin
-				if (cache2_line_sdata[k] == 0) begin
-					if (sys_clk_div && (longopen_counter[k] < LONGOPEN_COUNTER_THRESHOLD))
-						longopen_counter[k] <= longopen_counter[k] + 7'd1;
-					else
-						longopen_counter[k] <= longopen_counter[k];
-				end
-				else begin
-					longopen_counter[k] <= 0;
-				end
-			end
-		end
-	end
 
 	/**
 	 * 高电压时间内(is_high_voltage_time高电平时)，按cache2_line_sdata打开所需高电压；高电压时间后关闭
-	 * 按cache2_line_sdata打开低电压
 	 * 需要注意的是，已经开着的喷阀， 在高压时间内，不会再次使用高电压，只是保持低电压
-	 * 此外，根据开启时间计数器是否超时来决定是否关闭某路阀
+	 * 按cache2_line_sdata打开低电压
 	 * total_fault_flag会关闭所有喷阀
 	 */
-	integer m;
-	// 已经开着的喷阀，在高压时间内，不会再次使用高电压，只是保持低电压
-	wire [CHANNEL_NUM_MINUS_1:0] signal_high_voltage_wire = ~last_line_sdata | cache2_line_sdata;
 	always @ (posedge sys_clk or negedge rst_n) begin
 		if (!rst_n) begin
 			signal_low_voltage <= ~0;
@@ -363,17 +298,13 @@ module valveboard_firmware(
 			signal_high_voltage <= ~0;
 		end
 		else if (is_high_voltage_time) begin
-			// 阀的开启时间不超过LONGOPEN_COUNTER_THRESHOLD
-			for (m = 0; m < CHANNEL_NUM; m = m + 1) begin
-				signal_high_voltage[m] <= signal_high_voltage_wire[m] | ~(longopen_counter[m] < LONGOPEN_COUNTER_THRESHOLD);
-				signal_low_voltage[m] <= cache2_line_sdata[m] | ~(longopen_counter[m] < LONGOPEN_COUNTER_THRESHOLD);
-			end
+			// 已经开着的喷阀，在高压时间内，不会再次使用高电压，只是保持低电压
+			signal_high_voltage <= ~last_line_sdata | cache2_line_sdata;
+			signal_low_voltage <= cache2_line_sdata;
 		end
 		else begin
 			signal_high_voltage <= ~0;
-			for (m = 0;m < CHANNEL_NUM; m = m + 1) begin
-				signal_low_voltage[m] <= cache2_line_sdata[m] | ~(longopen_counter[m] < LONGOPEN_COUNTER_THRESHOLD);
-			end
+			signal_low_voltage <= cache2_line_sdata;
 		end
 	end
 	

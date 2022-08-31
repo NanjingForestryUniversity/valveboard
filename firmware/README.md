@@ -11,9 +11,6 @@ Quartus软件
 看程序注释
 
 ## Changelog
-
-**作者是丁坤，2019年9月入学、丁坤QQ1091546069、丁坤电话17761700156**，他是搞嵌入式的，自师兄王聪（2018年9月入学）毕业后硬件领域师门出现空档期，被老倪催的没办法了，就顺手写了这份FPGA代码，作者已经毕业，但很乐意解答关于固件的所有问题
-
 ### v1.0
 
 继承自老程序
@@ -31,7 +28,17 @@ Quartus软件
 - 添加了高电压抑制，见[issue#4](https://github.com/NanjingForestryUniversity/valveboard/issues/4)
 - 修正了高电压时间为0.2ms
 
-### 当前版本
+### v1.4
 
-- 暂且添加每路阀独立的开启超时为200ms，见[issue#6](https://github.com/NanjingForestryUniversity/valveboard/issues/6)
-- 通讯中断超时从原来的1s修改为200ms
+确认了阀不需要长时间开启保护，删除了阀板固件v1.4-beta1([commit 6af8df](https://github.com/NanjingForestryUniversity/valveboard/commit/6af8dfd09c268d677a46063cc9637f573e69919e))中的长时间开启保护，见[issue#6](https://github.com/NanjingForestryUniversity/valveboard/issues/6)
+
+
+## 作者
+[过奕任](https://github.com/3703781)、丁坤
+
+过奕任自师兄王聪（2018年入学）毕业后硬件方面师门出现空档期，被老倪催的没办法了，就学了硬件并顺手写了这份FPGA代码。丁坤是专门搞嵌入式的，但也看过这份代码。欢迎提[issue](https://github.com/NanjingForestryUniversity/valveboard/issues)，bug随缘解决。
+
+过奕任2020年入学，目前正打算找其他人接管这个库，毕业了就不要找他，但永远可以找丁坤。
+
+丁坤2019年入学、丁坤QQ1091546069、丁坤电话17761700156，已经毕业，但很乐意解答所有问题。
+

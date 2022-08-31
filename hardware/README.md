@@ -1,6 +1,6 @@
 # 阀板硬件
 
-这个文件夹下是丁坤画的48路阀板的原理图和PCB，用于烟梗分选机。整个机器用了六块48路阀板，驱动256路喷嘴，阀的型号是合肥旭伟电子气动有限公司的XW-F16，这个阀一个可以连接并控制16个喷嘴。每个阀的电阻是14欧姆，高压启动时峰值电流约1.5A，低压保持电流约0.8A。
+这个文件夹下是48路阀板的原理图和PCB，用于烟梗分选机。整个机器用了六块48路阀板，驱动256路喷嘴，阀的型号是合肥旭伟电子气动有限公司的XW-F16，这个阀一个可以连接并控制16个喷嘴。每个阀的电阻是14欧姆，高压启动时峰值电流约1.5A，低压保持电流约0.8A。
 
 ![image-20211226143651047](README.assets/image-20211226143651047.png)
 
@@ -50,20 +50,17 @@ CPLD烧录口为简牛口，用USB Blaster烧录的，开发软件为Quartus。�
 所需器件BOM里都有，板子开窗部分要加锡，钢网上已经体现了。测试板子是嘉立创做的，SMT也是嘉立创，直插元件和芯片需手焊
 
 ## Changelog
-
-丁坤2019年9月入学、丁坤QQ1091546069、丁坤电话17761700156，他刚入学时就被师兄叫去焊接汪学良的阀板，后来接替师兄做了这个仓库里的阀板，作者已经毕业，但很乐意解答有关的所有问题
-
 ### v1.0 
 
 绿色的阀板，测试版本，继承于远古的原理图和布局
 
 ### v1.1
 
-蓝色的阀板，丁坤画，具有ISO、LVDS、TTL接口，见[b01-h1.1-p1.1-f1.1](https://github.com/NanjingForestryUniversity/valveboard/releases/tag/b01-h1.1-p1.1-f1.1)
+蓝色的阀板，过奕任选型和画原理图，丁坤layout，具有ISO、LVDS、TTL接口，见[b01-h1.1-p1.1-f1.1](https://github.com/NanjingForestryUniversity/valveboard/releases/tag/b01-h1.1-p1.1-f1.1)
 
 ### v1.2
 
-黄色的阀板，见 [b02-h1.2-p1.1-f1.2](https://github.com/NanjingForestryUniversity/valveboard/releases/tag/b02-h1.2-p1.1-f1.2)
+黄色的阀板，过奕任画原理图和layout，见 [b02-h1.2-p1.1-f1.2](https://github.com/NanjingForestryUniversity/valveboard/releases/tag/b02-h1.2-p1.1-f1.2)
 
 - 采用带屏蔽的超六类RJ45端口代替原来的牛角座，增强了通信的稳定性
 - 删除了ISO（隔离）端口
@@ -76,7 +73,7 @@ CPLD烧录口为简牛口，用USB Blaster烧录的，开发软件为Quartus。�
 
 ### v1.3
 
-绿色的阀板，见[b02-h1.3-p1.1-f1.3](https://github.com/NanjingForestryUniversity/valveboard/releases/tag/b02-h1.3-p1.1-f1.3)
+绿色的阀板，过奕任画原理图和layout，见[b02-h1.3-p1.1-f1.3](https://github.com/NanjingForestryUniversity/valveboard/releases/tag/b02-h1.3-p1.1-f1.3)
 
 - 重画了原理图和PCB，PCB尺寸减小
 - 增大阻容器件封装，解决100V耐压风险，[issue#1](https://github.com/NanjingForestryUniversity/valveboard/issues/1)
@@ -86,3 +83,12 @@ CPLD烧录口为简牛口，用USB Blaster烧录的，开发软件为Quartus。�
 - 增加了每一路的标识丝印，南林的徽标
 - 重新排列了阀的连接器，方便插拔
 - 有需要的线路上增加了开窗，提高载流能力
+
+## 作者
+
+[过奕任](https://github.com/3703781)和丁坤一起设计了电路，画了板子。欢迎提[issue](https://github.com/NanjingForestryUniversity/valveboard/issues)，bug随缘解决。
+
+丁坤2019年入学时就被师兄叫去焊接汪学良的阀板，后来和过奕任接替师兄做了这个仓库里的阀板。丁坤已经毕业，但也很乐意解答关于板子的所有问题。丁坤QQ1091546069、丁坤电话17761700156。
+
+过奕任2020年入学，目前正打算找其他人接管这个库，毕业了就不要找他，但永远可以找丁坤。
+
